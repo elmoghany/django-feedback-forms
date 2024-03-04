@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 
@@ -9,4 +9,6 @@ class CreateProfileView(View):
         return render(request, "profiles/create_profile.html")
 
     def post(self, request):
-        pass
+        img_file = request.FILES["image"]
+        print(img_file)
+        return HttpResponseRedirect("/profiles")
